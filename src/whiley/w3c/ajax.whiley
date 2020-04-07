@@ -1,8 +1,8 @@
 package w3c
 
-import js_string from js::util
+import string from js::core
 
-public type HttpRequestHandler is method(int,null|js_string)
+public type HttpRequestHandler is method(int,null|string)
 
 // Perform an HTTP request using XMLHttpRequest.
-public native export method makeHttpRequest(js_string mthd, js_string url, HttpRequestHandler handler)
+public native export method makeHttpRequest(string mthd, string url, HttpRequestHandler handler)

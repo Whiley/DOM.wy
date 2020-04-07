@@ -1,10 +1,9 @@
 package w3c
 
-import js_string from js::util
-import std::ascii
+import string from js::core
 
 // Standard DOM JavaScript method
-public native export method alert(ascii::string str)
+public native export method alert(string str)
 
 // ==============================================================
 // Bindings against the Document Object Model (DOM)
@@ -38,7 +37,7 @@ public type Window is &{
     // Indicates whether secure context
     bool isSecureContext,
     // Current URL of window object
-    js_string location,
+    string location,
     // Gives access to data saved across browser sessions
     Storage localStorage,
     // Gives access to data saved within a session
@@ -54,15 +53,15 @@ public type Node is &{
     // =============================================
     // Event Listener Stuff
     // =============================================    
-    method addEventListener(js_string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
-    method removeEventListener(js_string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
     // =============================================
     // Node Stuff
     // =============================================    
     // Identifies what kind of node this i
     int nodeType,
     // Read only property returns node name
-    js_string nodeName,
+    string nodeName,
     // Parent of current node
     null|Element parent,
     // Return array of all nodes in tree
@@ -80,9 +79,9 @@ public type Node is &{
     // Indicates whether node has children or not
     function hasChildNodes()->(bool),
     // Sets or returns the value of the current node
-    js_string nodeValue,
+    string nodeValue,
     // 
-    null|js_string textContent,
+    null|string textContent,
     // methods.
     method appendChild(Node),
     method replaceChild(Node,Node),
@@ -93,15 +92,15 @@ public type Document is (&{
     // =============================================
     // Event Listener Stuff
     // =============================================    
-    method addEventListener(js_string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
-    method removeEventListener(js_string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
     // =============================================
     // Stuff from Node
     // =============================================    
     // Identifies what kind of node this i
     int nodeType,
     // Read only property returns node name
-    js_string nodeName,
+    string nodeName,
     // Parent of current node
     null|Element parent,
     // Return array of all nodes in tree
@@ -119,9 +118,9 @@ public type Document is (&{
     // Indicates whether node has children or not
     function hasChildNodes()->(bool),
     // Sets or returns the value of the current node
-    js_string nodeValue,
+    string nodeValue,
     // 
-    null|js_string textContent,
+    null|string textContent,
     // methods.
     method appendChild(Node),
     method replaceChild(Node,Node),
@@ -129,15 +128,15 @@ public type Document is (&{
     // Document specific stuff
     // =============================================    
     // Create raw Element
-    method createElement(js_string)->(Element),
+    method createElement(string)->(Element),
     // Create text node
-    method createTextNode(js_string)->(Text),
+    method createTextNode(string)->(Text),
     // Return element with matching id attribute
-    method getElementById(js_string)->(Element),
+    method getElementById(string)->(Element),
     // Write text directly into HTML Document
-    method write(js_string),
+    method write(string),
     // Write text directly into HTML Document, with newline character.
-    method writeln(js_string),
+    method writeln(string),
     // Other stuff
     ...
 } n) where n->nodeType == DOCUMENT_NODE
@@ -146,15 +145,15 @@ public type Element is &{
     // =============================================
     // Event Listener Stuff
     // =============================================    
-    method addEventListener(js_string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
-    method removeEventListener(js_string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
     // =============================================
     // Stuff from Node
     // =============================================
     // Identifies what kind of node this i
     int nodeType,
     // Read only property returns node name
-    js_string nodeName,
+    string nodeName,
     // Parent of current node
     null|Element parent,
     // Return array of all nodes in tree
@@ -172,9 +171,9 @@ public type Element is &{
     // Indicates whether node has children or not
     function hasChildNodes()->(bool),
     // Sets or returns the value of the current node
-    js_string nodeValue,
+    string nodeValue,
     // 
-    null|js_string textContent,
+    null|string textContent,
     // methods.
     method appendChild(Node),
     method replaceChild(Node,Node),
@@ -185,9 +184,9 @@ public type Element is &{
     // Access child
     (Element)[] children,
     // Sets or returns text of this node
-    js_string innerText,
+    string innerText,
     //
-    method setAttribute(js_string,js_string),
+    method setAttribute(string,string),
     //
     ...
 } 
@@ -201,86 +200,86 @@ where n->nodeType == TEXT_NODE
 
 public type CssStyleDeclaration is &{
     // Indirect accessors
-    method getPropertyValue(js_string)->js_string,
+    method getPropertyValue(string)->string,
     // set a new value for property
-    method setProperty(js_string,js_string),
+    method setProperty(string,string),
     // returns a CSS property name by index
-    method item(int)->js_string,
+    method item(int)->string,
     // remove a property by name
-    method removeProperty(js_string),
+    method removeProperty(string),
     // Direct accessors
-    js_string background,
-    js_string backgroundAttachment,
-    js_string backgroundColor,
-    js_string backgroundImage,
-    js_string backgroundPosition,
-    js_string backgroundRepeat,
-    js_string border,
-    js_string borderBottom,
-    js_string borderBottomColor,
-    js_string borderBottomStyle,
-    js_string borderBottomWidth,
-    js_string borderColor,
-    js_string borderLeft,
-    js_string borderLeftColor,
-    js_string borderLeftStyle,
-    js_string borderLeftWidth,
-    js_string borderRight,
-    js_string borderRightColor,
-    js_string borderRightStyle,
-    js_string borderRightWidth,
-    js_string borderStyle,
-    js_string borderTop,
-    js_string borderTopColor,
-    js_string borderTopStyle,
-    js_string borderTopWidth,
-    js_string borderWidth,
-    js_string clear,
-    js_string clip,
-    js_string color,
-    js_string cursor,
-    js_string display,
-    js_string filter,
-    js_string cssFloat,
-    js_string font,
-    js_string fontFamily,
-    js_string fontSize,
-    js_string fontVariant,
-    js_string fontWeight,
-    js_string height,
-    js_string left,
-    js_string letterSpacing,
-    js_string lineHeight,
-    js_string listStyle,
-    js_string listStyleImage,
-    js_string listStylePosition,
-    js_string listStyleType,
-    js_string margin,
-    js_string marginBottom,
-    js_string marginLeft,
-    js_string marginRight,
-    js_string marginTop,
-    js_string overflow,
-    js_string padding,
-    js_string paddingBottom,
-    js_string paddingLeft,
-    js_string paddingRight,
-    js_string paddingTop,
-    js_string pageBreakAfter,
-    js_string pageBreakBefore,
-    js_string position,
-    js_string strokeDasharray,
-    js_string strokeDashoffset,
-    js_string strokeWidth,
-    js_string textAlign,
-    js_string textDecoration,
-    js_string textIndent,
-    js_string textTransform,
-    js_string top,
-    js_string verticalAlign,
-    js_string visibility,
-    js_string width,
-    js_string zIndex
+    string background,
+    string backgroundAttachment,
+    string backgroundColor,
+    string backgroundImage,
+    string backgroundPosition,
+    string backgroundRepeat,
+    string border,
+    string borderBottom,
+    string borderBottomColor,
+    string borderBottomStyle,
+    string borderBottomWidth,
+    string borderColor,
+    string borderLeft,
+    string borderLeftColor,
+    string borderLeftStyle,
+    string borderLeftWidth,
+    string borderRight,
+    string borderRightColor,
+    string borderRightStyle,
+    string borderRightWidth,
+    string borderStyle,
+    string borderTop,
+    string borderTopColor,
+    string borderTopStyle,
+    string borderTopWidth,
+    string borderWidth,
+    string clear,
+    string clip,
+    string color,
+    string cursor,
+    string display,
+    string filter,
+    string cssFloat,
+    string font,
+    string fontFamily,
+    string fontSize,
+    string fontVariant,
+    string fontWeight,
+    string height,
+    string left,
+    string letterSpacing,
+    string lineHeight,
+    string listStyle,
+    string listStyleImage,
+    string listStylePosition,
+    string listStyleType,
+    string margin,
+    string marginBottom,
+    string marginLeft,
+    string marginRight,
+    string marginTop,
+    string overflow,
+    string padding,
+    string paddingBottom,
+    string paddingLeft,
+    string paddingRight,
+    string paddingTop,
+    string pageBreakAfter,
+    string pageBreakBefore,
+    string position,
+    string strokeDasharray,
+    string strokeDashoffset,
+    string strokeWidth,
+    string textAlign,
+    string textDecoration,
+    string textIndent,
+    string textTransform,
+    string top,
+    string verticalAlign,
+    string visibility,
+    string width,
+    string zIndex
 }
 
 // =======================================================
@@ -315,10 +314,10 @@ public type MouseEvent is &{
 
 public type KeyboardEvent is &{
     bool altKey,
-    js_string code,
+    string code,
     bool ctrlKey,
     bool isComposing,
-    js_string key,    
+    string key,    
     int keyCode,
     int location,
     bool metaKey,
@@ -333,7 +332,7 @@ public type KeyboardEvent is &{
 
 // Utterly broken
 public type HTMLImageElement is &{
-    js_string src,
+    string src,
     ...
 }
 
@@ -344,7 +343,7 @@ public type HTMLImageElement is &{
 public type HTMLCanvasElement is &{
     int width,
     int height,
-    method getContext(js_string) -> CanvasRenderingContext2D,
+    method getContext(string) -> CanvasRenderingContext2D,
     ...
 }
 
@@ -356,22 +355,22 @@ public type CanvasRenderingContext2D is &{
     // Draws a rectangle at (x, y) position whose size is determined by width and height.    
     method strokeRect(int, int, int, int),
     // Draws (fills) a given text at the given (x, y) position.
-    method fillText(js_string, int, int),
+    method fillText(string, int, int),
     // Draws (steokes) a given text at the given (x, y) position.
-    method strokeText(js_string, int, int),
+    method strokeText(string, int, int),
     // Returns a TextMetrics object.
-    method measureText(js_string)->TextMetrics,
+    method measureText(string)->TextMetrics,
     // Width of lines (default 1)
     int lineWidth,
     //
-    js_string font,
-    js_string textAlign,
-    js_string textBaseLine,
-    js_string direction,
+    string font,
+    string textAlign,
+    string textBaseLine,
+    string direction,
     // Color to use inside shapes
-    js_string fillStyle,
+    string fillStyle,
     // Color to use for lines around shapes
-    js_string strokeStyle,
+    string strokeStyle,
     // Paths
     // Starts a new path
     method beginPath(),
@@ -423,10 +422,10 @@ public type History is &{
 public type Storage is &{
     // Returns number of items stored
     int length,
-    function key(int)->(js_string),
-    function getItem(js_string)->(null|js_string),
-    method setItem(js_string,js_string),
-    method removeItem(js_string),
+    function key(int)->(string),
+    function getItem(string)->(null|string),
+    method setItem(string,string),
+    method removeItem(string),
     method clear(),
     ...
 }
