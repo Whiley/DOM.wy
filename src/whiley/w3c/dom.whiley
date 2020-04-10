@@ -190,6 +190,78 @@ public type Element is &{
     //
     ...
 } 
+public type TextArea is &{
+    // =============================================
+    // Event Listener Stuff
+    // =============================================    
+    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    // =============================================
+    // Stuff from Node
+    // =============================================
+    // Identifies what kind of node this i
+    int nodeType,
+    // Read only property returns node name
+    string nodeName,
+    // Parent of current node
+    null|Element parent,
+    // Return array of all nodes in tree
+    Node[] childNodes,
+    // Return first child in tree
+    Node firstChild,
+    // Return last child in tree
+    Node lastChild,
+    // Returns next child in parents tree
+    Node nextSibling,
+    // Returns previous child in parents tree
+    Node previousSibling,
+    // Indicates whether connected to "root" context (e.g. Document)
+    bool isConnected,
+    // Indicates whether node has children or not
+    function hasChildNodes()->(bool),
+    // Sets or returns the value of the current node
+    string nodeValue,
+    // 
+    null|string textContent,
+    // methods.
+    method appendChild(Node),
+    method replaceChild(Node,Node),
+    // =============================================
+    // Element specific stuff
+    // =============================================
+    CssStyleDeclaration style,
+    // Access child
+    (Element)[] children,
+    // Sets or returns text of this node
+    string innerText,
+    //
+    method setAttribute(string,string),
+    // =============================================
+    // TextArea specific stuff
+    // =============================================
+    // Sets or returns cols attribute
+    int cols,
+    // Sets or returns the default value of a text area
+    string defaultValue,
+    // Sets or returns whether the text area is disabled, or not
+    bool disabled,
+    // Sets or returns the value of the maxlength attribute of a text area         
+    int maxLength,
+    // Sets or returns the value of the name attribute of a text area
+    string name,
+    // Sets or returns whether the contents of a text area is read-only
+    bool readOnly,
+    // Sets or returns whether the text area must be filled out before submitting a form
+    bool required,
+    // Sets or returns the value of the rows attribute of a text area
+    int rows, 
+    //
+    string value,
+    // Sets or returns the value of the wrap attribute of a text area
+    bool wrap,
+    ...
+} 
+
 
 public type Text is (Node n)
 where n->nodeType == TEXT_NODE
