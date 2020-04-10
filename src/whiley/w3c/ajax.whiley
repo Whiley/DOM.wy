@@ -30,6 +30,8 @@ public type XMLHttpRequest is &{
     // method send(),
     // Sends request to server (for POST)
     method send(string),
+    // Set request header
+    method setRequestHeader(string,string),
     // Identifies the response code
     u16 status,
     // Identifies the time (in ms) before request terminated
