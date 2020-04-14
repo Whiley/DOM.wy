@@ -179,10 +179,12 @@ public type Element is &{
     method replaceChild(Node,Node),
     // =============================================
     // Element specific stuff
-    // =============================================
+    // =============================================    
     CssStyleDeclaration style,
     // Access child
     (Element)[] children,
+    // Sets of returns element id
+    string id,
     // Sets or returns text of this node
     string innerText,
     //
