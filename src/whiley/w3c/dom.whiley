@@ -122,6 +122,7 @@ public type Node is &{
     null|string textContent,
     // methods.
     method appendChild(Node),
+    method removeChild(Node),    
     method replaceChild(Node,Node),
     ...
 }
@@ -161,6 +162,7 @@ public type Document is (&{
     null|string textContent,
     // methods.
     method appendChild(Node),
+    method removeChild(Node),
     method replaceChild(Node,Node),
     // =============================================
     // Document specific stuff
@@ -214,6 +216,7 @@ public type Element is &{
     null|string textContent,
     // methods.
     method appendChild(Node),
+    method removeChild(Node),
     method replaceChild(Node,Node),
     // =============================================
     // Element specific stuff
@@ -269,6 +272,7 @@ public type TextArea is &{
     null|string textContent,
     // methods.
     method appendChild(Node),
+    method removeChild(Node),
     method replaceChild(Node,Node),
     // =============================================
     // Element specific stuff
