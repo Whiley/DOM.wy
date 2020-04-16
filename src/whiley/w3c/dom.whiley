@@ -5,6 +5,30 @@ import string from js::core
 // Standard DOM JavaScript method
 public native export method alert(string str)
 
+// Calls a method after a specified delay (in milliseconds)
+public native export method setTimeout(method() callback,int ms)
+
+// Calls a method at specified intervals (in milliseconds).
+public native export method setInterval(method() callback, int ms)
+
+// Clears timer set via setTimeout().
+public native export method clearTimeout()
+
+// Clears timer set via setInterval().
+public native export method clearInterval()
+
+// Ppens a new browser window or a new tab (depending on your browser settings and the parameter values).
+public native export method open(string URL, string name, string specs, bool replace)
+
+// Displays a dialog box that prompts the visitor for input
+public native export method prompt(string text, string defaultText) -> string|null
+
+// Displays dialog box with specified message, along with OK and Cancel button
+public native export method confirm(string text)
+
+// Closes the current window
+public native export method close()
+
 // ==============================================================
 // Bindings against the Document Object Model (DOM)
 // ==============================================================
