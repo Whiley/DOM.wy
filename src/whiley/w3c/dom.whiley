@@ -18,6 +18,20 @@ public final int DOCUMENT_NODE = 9
 public final int DOCUMENT_TYPE_NODE = 10
 public final int DOCUMENT_FRAGMENT_NODE = 11
 
+public type List<T> is &{
+    int length,
+    // Add item to list
+    method add(T),
+    // Check whether item contained
+    function contains(T)->bool,
+    // Return ith item
+    function item(int)->T,
+    // Remove item
+    method remove(T),
+    // Mark as open
+    ...
+}
+
 // ===========================================================
 // Enclosing Window
 // ===========================================================
@@ -183,7 +197,11 @@ public type Element is &{
     CssStyleDeclaration style,
     // Access child
     (Element)[] children,
-    // Sets of returns element id
+    // Sets or returns element class
+    string className,
+    // Returns the class name(s) of an element
+    List<string> classList,
+    // Sets or returns element id
     string id,
     // Sets or returns text of this node
     string innerText,
