@@ -232,6 +232,8 @@ public type Element is &{
     string id,
     // Sets or returns text of this node
     string innerText,
+    // Removes element from parent
+    method remove(),
     //
     method setAttribute(string,string),
     //
