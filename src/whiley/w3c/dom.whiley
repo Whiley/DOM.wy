@@ -1,33 +1,7 @@
 package w3c
 
 import string from js::core
-
-// Standard DOM JavaScript method
-public native export method alert(string str)
-
-// Calls a method after a specified delay (in milliseconds)
-public native export method setTimeout(method() callback,int ms)
-
-// Calls a method at specified intervals (in milliseconds).
-public native export method setInterval(method() callback, int ms)
-
-// Clears timer set via setTimeout().
-public native export method clearTimeout()
-
-// Clears timer set via setInterval().
-public native export method clearInterval()
-
-// Ppens a new browser window or a new tab (depending on your browser settings and the parameter values).
-public native export method open(string URL, string name, string specs, bool replace)
-
-// Displays a dialog box that prompts the visitor for input
-public native export method prompt(string text, string defaultText) -> string|null
-
-// Displays dialog box with specified message, along with OK and Cancel button
-public native export method confirm(string text)
-
-// Closes the current window
-public native export method close()
+import number from js::core
 
 // ==============================================================
 // Bindings against the Document Object Model (DOM)
@@ -56,6 +30,8 @@ public type List<T> is &{
     ...
 }
 
+public type EventListener is method(Event)|method(MouseEvent)|method(KeyboardEvent)
+
 // ===========================================================
 // Enclosing Window
 // ===========================================================
@@ -80,6 +56,59 @@ public type Window is &{
     Storage localStorage,
     // Gives access to data saved within a session
     Storage sessionStorage,
+    // Standard DOM JavaScript method
+    method alert(string),
+    // Decode base-64 encoded string
+    method atob(string),
+    // Remove focus from current window
+    method blur(),
+    // Encode string in base-64
+    method btoa(string),
+    // Clear timer set via setTimeout()
+    method clearTimeout(),
+    // Clear timer set via setInterval()
+    method clearInterval(),
+    // Close current window
+    method close(),
+    // Display dialog box with given message and Ok / Cancel buttons
+    method confirm(string),
+    // Sets focus to the current window
+    method focus(),
+    // Gets the current computed CSS styles applied to an element
+    method getComputedStyle(Element),
+    // Gets the current computed CSS styles applied to an element using pseudoelement
+    //method getComputedStyle(Element, string),
+    // Returns a Selection object representing the range of text selected by the user
+    //  method getSelection()
+    // Returns a MediaQueryList object representing the specified CSS media query string
+    //  method matchMedia(string mediaQueryString)
+    // Moves a window relative to its current position
+    method moveBy(int, int),
+    // Moves a window to the specified position
+    method moveTo(int, int),
+    // Open new browser window or tab.
+    method open(string, string, string, bool) -> Window,
+    // Prints the content of the current window
+    method print(),
+    // Display dialog box prompting user for input
+    method prompt(string, string) -> string|null,
+    // Requests the browser to call a function to update an animation before the next repaint
+    method requestAnimationFrame(method(number))->int,
+    // Resize window by specified pixels
+    method resizeBy(int, int),
+    // Resize window to specified width and height
+    method resizeTo(int, int),
+    // Scrolls the document by the specified number of pixels
+    method scrollBy(int, int),
+    // Scrolls the document to the specified coordinates
+    method scrollTo(int, int),
+    // Call method after delay (ms)
+    method setTimeout(method(),int),
+    // Call method at specified interval (ms)
+    method setInterval(method(), int),
+    // Stops the window from loading
+    method stop(),
+    // Done        
     ...    
 }
 
@@ -91,8 +120,8 @@ public type Node is &{
     // =============================================
     // Event Listener Stuff
     // =============================================    
-    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
-    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method addEventListener(string,EventListener),
+    method removeEventListener(string,EventListener),
     // =============================================
     // Node Stuff
     // =============================================    
@@ -131,8 +160,8 @@ public type Document is (&{
     // =============================================
     // Event Listener Stuff
     // =============================================    
-    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
-    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method addEventListener(string,EventListener),
+    method removeEventListener(string,EventListener),
     // =============================================
     // Stuff from Node
     // =============================================    
@@ -185,8 +214,8 @@ public type Element is &{
     // =============================================
     // Event Listener Stuff
     // =============================================    
-    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
-    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method addEventListener(string,EventListener),
+    method removeEventListener(string,EventListener),
     // =============================================
     // Stuff from Node
     // =============================================
@@ -243,8 +272,8 @@ public type TextArea is &{
     // =============================================
     // Event Listener Stuff
     // =============================================    
-    method addEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
-    method removeEventListener(string,method(Event)|method(MouseEvent)|method(KeyboardEvent)),
+    method addEventListener(string,EventListener),
+    method removeEventListener(string,EventListener),
     // =============================================
     // Stuff from Node
     // =============================================
