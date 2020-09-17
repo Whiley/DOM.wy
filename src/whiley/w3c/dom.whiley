@@ -265,6 +265,8 @@ public type Element is &{
     method remove(),
     //
     method setAttribute(string,string),
+    method getAttribute(string),
+    method removeAttribute(string),
     //
     ...
 } 
