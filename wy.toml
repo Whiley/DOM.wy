@@ -4,7 +4,7 @@ authors=["David J. Pearce"]
 version="0.2.2"
 
 [build]
-platforms=["whiley"]
+platforms=["whiley","js"]
 
 [build.whiley]
 source="src/whiley"
