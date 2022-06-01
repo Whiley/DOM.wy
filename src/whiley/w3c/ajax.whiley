@@ -1,6 +1,6 @@
 package w3c
 
-import u16, uint from std::integer
+import u16, uint from std::int
 import string from js::core
 
 public final int UNSENT = 0
